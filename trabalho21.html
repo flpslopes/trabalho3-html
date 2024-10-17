@@ -1,0 +1,145 @@
+// 1. Função contarOcorrencias
+function contarOcorrencias(arr) {
+    const ocorrencias = {};
+    for (let i = 0; i < arr.length; i++) {
+        const num = arr[i];
+        if (ocorrencias[num]) {
+            ocorrencias[num]++;
+        } else {
+            ocorrencias[num] = 1;
+        }
+    }
+    return ocorrencias;
+}
+
+const numeros = [1, 2, 2, 3, 3, 3, 4];
+console.log(contarOcorrencias(numeros));
+
+
+
+
+
+
+
+
+// 2. Função ordenarPorIdade
+function ordenarPorIdade(pessoas) {
+    return pessoas.sort((a, b) => a.idade - b.idade);
+}
+
+const pessoas = [
+    { nome: "Ana", idade: 25 },
+    { nome: "Carlos", idade: 20 },
+    { nome: "Maria", idade: 30 }
+];
+console.log(ordenarPorIdade(pessoas));
+
+
+
+
+
+// 3. Função separarParesImpares
+function separarParesImpares(arr) {
+    const resultado = { pares: [], impares: [] };
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            resultado.pares.push(arr[i]);
+        } else {
+            resultado.impares.push(arr[i]);
+        }
+    }
+    return resultado;
+}
+
+const numeros2 = [1, 2, 3, 4, 5, 6];
+console.log(separarParesImpares(numeros2));
+
+
+
+
+
+
+
+// 4. Função ehPalindromo
+function ehPalindromo(str) {
+    const invertido = str.split('').reverse().join('');
+    return str === invertido;
+}
+
+console.log(ehPalindromo("arara"));  // true
+console.log(ehPalindromo("banana")); // false
+
+
+
+
+
+
+
+// 5. Função somaMatriz
+function somaMatriz(matriz) {
+    let soma = 0;
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            soma += matriz[i][j];
+        }
+    }
+    return soma;
+}
+
+const matriz = [
+    [1, 2],
+    [3, 4]
+];
+console.log(somaMatriz(matriz)); // 10
+
+
+
+
+
+// 6. Função substituirElemento
+function substituirElemento(arr, valorAntigo, valorNovo) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === valorAntigo) {
+            arr[i] = valorNovo;
+        }
+    }
+    return arr;
+}
+
+const arrayExemplo = [1, 2, 3, 2, 4];
+console.log(substituirElemento(arrayExemplo, 2, 5));
+
+
+
+
+
+
+
+// 7. Função multiplicarMatrizes
+function multiplicarMatrizes(matrizA, matrizB) {
+    const resultado = [];
+    if (matrizA[0].length !== matrizB.length) {
+        return "Não é possível multiplicar as matrizes.";
+    }
+    for (let i = 0; i < matrizA.length; i++) {
+        resultado[i] = [];
+        for (let j = 0; j < matrizB[0].length; j++) {
+            let soma = 0;
+            for (let k = 0; k < matrizA[0].length; k++) {
+                soma += matrizA[i][k] * matrizB[k][j];
+            }
+            resultado[i][j] = soma;
+        }
+    }
+    return resultado;
+}
+
+const matrizA = [
+    [1, 2],
+    [3, 4]
+];
+const matrizB = [
+    [5, 6],
+    [7, 8]
+];
+console.log(multiplicarMatrizes(matrizA, matrizB)
